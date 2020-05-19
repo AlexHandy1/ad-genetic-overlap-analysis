@@ -15,13 +15,13 @@ Analysis Structure
 
 #### The analysis is structured around 4 main steps  
 
-1. **Protein Shortlist** - Identify a shortlist of blood plasma proteins from existing literature that have been associated with AD or AD phenotypes  [(select-protein-shortlist)](link to folder)  
+1. **Protein Shortlist** - Identify a shortlist of blood plasma proteins from existing literature that have been associated with AD or AD phenotypes  [(select-protein-shortlist)](https://github.com/AlexHandy1/ad-genetic-overlap-analysis/tree/master/select-protein-shortlist)  
 
-2. **Protein PRS to AD** - Create PRS models for shortlist of proteins and test their association with AD in three cohorts [(protein-prs-to-ad)](link to folder)  
+2. **Protein PRS to AD** - Create PRS models for shortlist of proteins and test their association with AD in three cohorts [(protein-prs-to-ad)](https://github.com/AlexHandy1/ad-genetic-overlap-analysis/tree/master/protein-prs-to-ad)  
 
-3. **AD PRS to protein** - Create an AD PRS model and test bi-directional association with individual blood plasma protein levels in separate cohort[(ad-prs-to-protein)](link to folder)  
+3. **AD PRS to protein** - Create an AD PRS model and test bi-directional association with individual blood plasma protein levels in separate cohort[(ad-prs-to-protein)](https://github.com/AlexHandy1/ad-genetic-overlap-analysis/tree/master/ad-prs-to-protein)   
 
-4. **Bi-directional MR** - Test for causality by conducting two sample, bi-directional MR on blood plasma proteins that are nominally significant in one or both PRS analyses  [(bi-directional-mr)](link to folder)  
+4. **Bi-directional MR** - Test for causality by conducting two sample, bi-directional MR on blood plasma proteins that are nominally significant in one or both PRS analyses  [(bi-directional-mr)](https://github.com/AlexHandy1/ad-genetic-overlap-analysis/tree/master/bi-directional-mr) 
 
 
 #### Considerations
