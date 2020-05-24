@@ -28,7 +28,7 @@ Analysis Structure
 
 * The folders within this repository contain the analysis scripts that form the analysis pipeline. This is focused primarily around steps 2-4 as step 1 is currently a largely manual process.   
 
-* The analysis is designed to run primarily on King's College London's high performance computing cluster [Rosalind](https://rosalind.kcl.ac.uk).   
+* The analysis is designed to run primarily on King's College London's high performance computing cluster [Rosalind](https://rosalind.kcl.ac.uk) where input data can be held securely.   
 
 * Currently, the scripts do not operate as an end-to-end pipeline and have been designed for personal efficiency rather than third party replication.  
 
