@@ -9,7 +9,7 @@ library(data.table)
 library(dplyr)
 
 print("Set working directory to Sun et al Base Data data")
-setwd("/mnt/lustre/groups/proitsi/Alex/Base_Data/Pre_QC/Final_Shortlist")
+setwd("/mnt/lustre/groups/proitsi/Alex/Protein_PRS_to_AD/Base_Data/Pre_QC/Final_Shortlist")
 
 print("Load the protein base files from the directory")
 

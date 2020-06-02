@@ -4,7 +4,7 @@ library(tibble)
 
 print("STEP 1: Load .log files")
 print("Set working directory to heritability_check/h2")
-setwd("//mnt/lustre/groups/proitsi/Alex/Base_Data/heritability_check/h2")
+setwd("/mnt/lustre/groups/proitsi/Alex/Protein_PRS_to_AD/Base_Data/heritability_analysis/Final_Shortlist/h2")
 logResultsFiles <- list.files(pattern = ".*.log")
 
 print("STEP 2: Setup results table")
@@ -76,6 +76,7 @@ for (newEntry in logResultsFiles){
 print("Final results table")
 print(resultsTable)
 
-write.csv(resultsTable, "heritabilityCheckResults.csv", row.names=FALSE)
+setwd("/mnt/lustre/groups/proitsi/Alex/Protein_PRS_to_AD/Results/heritability_analysis")
+write.csv(resultsTable, "protein_h2_results.csv", row.names=FALSE)
 
  
