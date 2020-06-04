@@ -3,7 +3,7 @@ library(dplyr)
 
 print("STEP 1: Load .log files")
 print("Set working directory to rg analysis")
-setwd("/mnt/lustre/groups/proitsi/Alex/Base_Data/rg_analysis")
+setwd("/mnt/lustre/groups/proitsi/Alex/Protein_PRS_to_AD/Base_Data/rg_analysis/Final_Shortlist")
 logResultsFiles <- list.files(pattern = ".*.log")
 
 print("STEP 2: Setup results table")
@@ -22,7 +22,7 @@ for (newEntry in logResultsFiles){
   print(paste("Protein: ", protein))
   
   print("STEP 6: Select rows with results")
-  newEntryLog <- tail(newEntryLog, 26)
+  newEntryLog <- tail(newEntryLog, 32)
   newEntryLog <- head(newEntryLog, -2)
   
   print("STEP 7: Replace multiple white spaces with one comma")
@@ -65,6 +65,7 @@ for (newEntry in logResultsFiles){
 
 print("Final results table")
 print(resultsTable)
+setwd("/mnt/lustre/groups/proitsi/Alex/Protein_PRS_to_AD/Results/rg_analysis")
 
-write.csv(resultsTable, "proteinRgResults.csv", row.names=F, quote=F)
+write.csv(resultsTable, "protein_rg_results.csv", row.names=F, quote=F)
 
