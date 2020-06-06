@@ -5,7 +5,8 @@ library(tibble)
 
 print("STEP 1: Load .summary files")
 print("Set working directory to PRS Outputs")
-setwd("/mnt/lustre/groups/proitsi/Alex/PRS_Outputs/PRS_Outputs_All_Covariates_NO_APOE")
+#Update path for target results
+setwd("/mnt/lustre/groups/proitsi/Alex/Protein_PRS_to_AD/Results/prs/protein_prs_all_with_apoe")
 summaryResultsFiles <- list.files(pattern = ".*.summary")
 
 print("STEP 2: Setup results table")
@@ -49,6 +50,7 @@ for (newEntry in summaryResultsFiles){
 
 print("Final results table")
 print(resultsTable)
-write.csv(resultsTable, "prsResults.csv", row.names=F, quote=F)
+#Update output for target results
+write.csv(resultsTable, "protein_prs_all_with_apoe_indiv_sample_res.csv", row.names=F, quote=F)
 
 

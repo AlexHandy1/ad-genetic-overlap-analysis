@@ -3,8 +3,9 @@ library(metafor)
 library(dplyr)
 
 print("STEP 1: Load PRS Results prepared for meta analysis")
-setwd("/mnt/lustre/groups/proitsi/Alex/PRS_Outputs/PRS_Outputs_All_Covariates_WITH_APOE")
-prsResults <- read.csv("prsThresholdsForMetaAnalysis.csv", header=T)
+#update for with and without APOE
+setwd("/mnt/lustre/groups/proitsi/Alex/Protein_PRS_to_AD/Results/prs/protein_prs_all_with_apoe")
+prsResults <- read.csv("protein_prs_all_with_apoe_res_for_meta_analysis.csv", header=T)
 
 print("STEP 2: Set total sample size for use in R^2 calculation")
 #Consider adding programmatically 
@@ -118,6 +119,6 @@ for (protein in proteins){
 
 print("Final results table")
 print(resultsTable)
-write.csv(resultsTable, "prsMetaAnalysisResults.csv", col.names=T, row.names=F, quote=F)
+write.csv(resultsTable, "protein_prs_all_with_apoe_meta_analysis_res.csv", col.names=T, row.names=F, quote=F)
 
 

@@ -5,7 +5,8 @@ library(tibble)
 
 print("STEP 1: Load prsice files")
 print("Set working directory to PRS Outputs")
-setwd("/mnt/lustre/groups/proitsi/Alex/PRS_Outputs/PRS_Outputs_All_Covariates_WITH_APOE")
+#update for target results
+setwd("/mnt/lustre/groups/proitsi/Alex/Protein_PRS_to_AD/Results/prs/protein_prs_all_with_apoe")
 summaryResultsFiles <- list.files(pattern = ".*prsice")
 
 print("STEP 2: Setup results table")
@@ -27,7 +28,7 @@ for (newEntry in summaryResultsFiles){
   print(paste("Sample: ", sample))
   
   print("STEP 6: select all columns after Set for new entry")
-  newEntrySummary <- select(newEntrySummary, 2:8)
+  newEntrySummary <- select(newEntrySummary, 2:9)
   
   print("STEP 7: add protein and sample to new entry")
   newEntrySummary <- add_column(newEntrySummary, Protein=protein, Sample=sample, .before=1)
@@ -43,4 +44,4 @@ for (newEntry in summaryResultsFiles){
 
 print("Final results table")
 print(resultsTable)
-write.csv(resultsTable, "prsThresholdsForMetaAnalysis.csv", col.names=T, row.names=F, quote=F)
+write.csv(resultsTable, "protein_prs_all_with_apoe_res_for_meta_analysis.csv", col.names=T, row.names=F, quote=F)
