@@ -20,14 +20,14 @@
 
 - Run [R script](https://github.com/AlexHandy1/ad-genetic-overlap-analysis/blob/master/protein-prs-to-ad/prepare_prs_all_metaanalysis.R) on **all participants** individual sample results to prepare data for meta-analysis. Update input and output folder in script for with and without APOE and re-run.   
 
-- Run [R script - **To-do**](https://github.com/AlexHandy1/ad-genetic-overlap-analysis/blob/master/protein-prs-to-ad/prepare_prs_stratified_metaanalysis.R) on **participants grouped by gender and age brackets** individual sample results to prepare data for meta-analysis. Update input and output folder in script for with and without APOE and re-run.  
+- Run [R script](https://github.com/AlexHandy1/ad-genetic-overlap-analysis/blob/master/protein-prs-to-ad/prepare_prs_stratified_metaanalysis.R) on **participants grouped by gender and age brackets** individual sample results to prepare data for meta-analysis, runs for both APOE status (update).    
 
 
 ##### Run Meta-Analysis
 
-- Run [R script](https://github.com/AlexHandy1/ad-genetic-overlap-analysis/blob/master/protein-prs-to-ad/prs_all_meta_analysis.R) on **all participants** prepped meta-analysis data and output results. Update input and output folder in script for with and without APOE and re-run.   
+- Run [R script](https://github.com/AlexHandy1/ad-genetic-overlap-analysis/blob/master/protein-prs-to-ad/protein_prs_all_meta_analysis.R) on **all participants** prepped meta-analysis data and output results. Update input and output folder in script for with and without APOE and re-run.   
 
-- Run [R script - **To-do**](https://github.com/AlexHandy1/ad-genetic-overlap-analysis/blob/master/protein-prs-to-ad/prs_stratified_meta_analysis.R) on **participants grouped by gender and age brackets** prepped meta-analysis data and output results. Update input and output folder in script for with and without APOE and re-run.   
+- Run [R script - **To-do**](https://github.com/AlexHandy1/ad-genetic-overlap-analysis/blob/master/protein-prs-to-ad/protein_prs_stratified_meta_analysis.R) on **participants grouped by gender and age brackets** prepped meta-analysis data and output results. Update input and output folder in script for with and without APOE and re-run.   
 
 
 
