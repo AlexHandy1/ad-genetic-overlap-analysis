@@ -25,9 +25,9 @@
 
 ##### Run Meta-Analysis
 
-- Run [R script](https://github.com/AlexHandy1/ad-genetic-overlap-analysis/blob/master/protein-prs-to-ad/protein_prs_all_meta_analysis.R) on **all participants** prepped meta-analysis data and output results. Update input and output folder in script for with and without APOE and re-run.   
+- Run [R script](https://github.com/AlexHandy1/ad-genetic-overlap-analysis/blob/master/protein-prs-to-ad/protein_prs_all_meta_analysis.R) on **all participants** data that has been prepped for random-effects meta-analysis with REML and output results. Update input and output folder in script for with and without APOE and re-run.   
 
-- Run [R script - **To-do**](https://github.com/AlexHandy1/ad-genetic-overlap-analysis/blob/master/protein-prs-to-ad/protein_prs_stratified_meta_analysis.R) on **participants grouped by gender and age brackets** prepped meta-analysis data and output results. Update input and output folder in script for with and without APOE and re-run.   
+- Run [R script](https://github.com/AlexHandy1/ad-genetic-overlap-analysis/blob/master/protein-prs-to-ad/protein_prs_stratified_meta_analysis.R) on **participants grouped by gender and age brackets** data that has been prepped for random-effects meta-analysis with REML and output results, runs for both APOE status (update).  
 
 
 
