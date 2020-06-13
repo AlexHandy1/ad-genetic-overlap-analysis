@@ -1,0 +1,1 @@
+"Angiopoietin.2","Apo.B","Apo.E3","BNP.32","C1.Esterase.Inhibitor","C3","C4","Clusterin","CRP","D.dimer","Factor.H","G.CSF","Haptoglobin..Mixed.Type","IGFBP.2","IL.10","IL.13","IL.3","IL.8","MMP.9","Plasminogen","resistin","SAP","Tenascin","TNF.a","Transferrin","VCAM.1"
