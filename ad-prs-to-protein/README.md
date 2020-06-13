@@ -22,6 +22,9 @@
 
 - Run PRSice command with [bash script](https://github.com/AlexHandy1/ad-genetic-overlap-analysis/blob/master/ad-prs-to-protein/protein_prs_all_with_apoe.sh) to analyse **all groups with and without** APOE SNPs included - `sbatch -p shared --job-name ad-prs ad_prs_all_groups.sh`.  
 
+- Prepare results with [R script](https://github.com/AlexHandy1/ad-genetic-overlap-analysis/blob/master/ad-prs-to-protein/prepare_ad_pres_results_adj_p.R) and download csvs for use in Shiny app.  
+ 
+
 
 
 
