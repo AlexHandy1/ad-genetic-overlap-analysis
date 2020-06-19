@@ -100,7 +100,7 @@ for (i in 1:(length(exposures))) {
       my_plots2[[i]] <- plots
       
  }
-    
+
 write.csv(resultsTable, "Prot_to_AD_T2.csv", row.names=F, quote=F)
 
 
