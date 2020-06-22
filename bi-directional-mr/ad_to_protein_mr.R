@@ -8,12 +8,11 @@ library(data.table)
 print("Step 1: Read in Kunkle GWAS Data")
 AD <- fread('/Users/alexanderhandy/Documents/MSc-Neuroscience/Thesis-data/Kunkle_Stage1_post_qc.txt', header=T) 
 
-print("Step 2: Select 25 genome-wide significant SNPs from Kunkle Stage 1 and 2 as instruments")
-#UPDATE WHEN RECEIVE FROM TEAM
+print("Step 2: Select 26 genome-wide significant SNPs from Kunkle Stage 1, 2 and 3 as instruments")
 AD_SNPs_rs_ids <- c("rs4844610","rs6733839","rs10933431","rs9271058","rs75932628",
                     "rs9473117","rs12539172","rs10808026","rs73223431","rs9331896",
                     "rs3740688","rs7933202","rs3851179","rs11218343","rs17125924","rs12881735",
-                    "rs3752246","rs429358","rs6024870","rs7920721","rs138190086")
+                    "rs3752246","rs429358","rs6024870","rs7920721","rs138190086", "rs593742", "rs7185636", "rs2830500", "rs114812713", "rs62039712")
 
 AD_SNPS <- filter(AD, MarkerName %in% AD_SNPs_rs_ids)
 
@@ -110,4 +109,5 @@ harmonise_options = c(1,2)
     print(plot_list2)
     dev.off()
   }
+
 
