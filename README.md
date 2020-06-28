@@ -1,13 +1,11 @@
 Background and Objectives
 -------
 
-* Proteins present in blood plasma have been associated with Alzheimer's Disease (AD) and offer accessible sources for disease modification and prediction.   
+* Proteins present in blood plasma are modifiable and have been associated with AD but understanding which proteins are causal remains challenging.     
 
-* However, the genetic overlap between blood plasma proteins and AD remains unknown.   
+* Recent advances in proteomics enable analysis of the genetic overlap of blood plasma proteins and AD and combined with Mendelian Randomization (MR) can help determine protein causality.   
 
-* The primary research objective is to identify if there are significant associations between blood plasma protein polygenic risk scores (PRS) and AD.  
-
-* For blood plasma protein PRS that do show significant association with AD, the secondary objective is to identify whether exposure to the protein is causal using Mendelian Randomization (MR).  
+* This project aims to identify if there are significant associations between blood plasma protein polygenic risk scores (PRS) and AD and, for associated proteins, identify whether exposure to the protein is causal using MR.   
 
 
 Analysis Structure
@@ -15,13 +13,13 @@ Analysis Structure
 
 #### The analysis is structured around 4 main steps  
 
-1. **Protein Shortlist** - Identify a shortlist of blood plasma proteins from existing literature that have been associated with AD or AD phenotypes  [(select-protein-shortlist)](https://github.com/AlexHandy1/ad-genetic-overlap-analysis/tree/master/select-protein-shortlist)  
+1. **Protein Shortlist** - Identify a shortlist of blood plasma proteins from existing literature that have been associated with AD or AD phenotypes.  [(select-protein-shortlist)](https://github.com/AlexHandy1/ad-genetic-overlap-analysis/tree/master/select-protein-shortlist) 
 
-2. **Protein PRS to AD** - Create PRS models for shortlist of proteins and test their association with AD using logistic regression in three cohorts [(protein-prs-to-ad)](https://github.com/AlexHandy1/ad-genetic-overlap-analysis/tree/master/protein-prs-to-ad)  
+2. **Protein PRS to AD** - Create PRS models for shortlist of proteins and test their association with AD using logistic regression in three cohorts. [(protein-prs-to-ad)](https://github.com/AlexHandy1/ad-genetic-overlap-analysis/tree/master/protein-prs-to-ad)  
 
-3. **AD PRS to protein** - Create an AD PRS model and test bi-directional association with individual blood plasma protein levels using linear regression in separate cohort[(ad-prs-to-protein)](https://github.com/AlexHandy1/ad-genetic-overlap-analysis/tree/master/ad-prs-to-protein)   
+3. **AD PRS to protein** - Create an AD PRS model and test bi-directional association with individual blood plasma protein levels using linear regression in separate cohort. [(ad-prs-to-protein)](https://github.com/AlexHandy1/ad-genetic-overlap-analysis/tree/master/ad-prs-to-protein)   
 
-4. **Bi-directional MR** - Test for causality by conducting two sample, bi-directional MR on blood plasma proteins that are nominally significant in one or both PRS analyses  [(bi-directional-mr)](https://github.com/AlexHandy1/ad-genetic-overlap-analysis/tree/master/bi-directional-mr) 
+4. **Bi-directional MR** - Test for causality by conducting two sample, bi-directional MR on blood plasma proteins that are significant in one or both PRS analyses.  [(bi-directional-mr)](https://github.com/AlexHandy1/ad-genetic-overlap-analysis/tree/master/bi-directional-mr) 
 
 
 #### Considerations
@@ -42,11 +40,7 @@ Once my MSc thesis has been submitted, I am planning two types of improvements, 
 
 Below is a list in order of priority:   
 
-* Conduct Bayesian co-localisation on SNP signals within significant proteins  
-
-* Build multi-protein PRS prediction panel using machine learning  
-
-* Remove a-priori protein filter and extend analysis to longer list of proteins (n > 100)  
+* Build multi-protein PRS prediction panel using machine learning
 
 * Build automated, reproducible analysis pipeline with integrated tests on public cloud service   
 

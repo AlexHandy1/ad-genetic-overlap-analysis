@@ -103,24 +103,24 @@ for (threshold in p_val_thresholds){
     res_table <- data.frame(Protein = res_all_f$Protein, NSNPs = res_all_f$nsnp, Method = res_all_f$method, OR = res_all_f$OR, CI_Lower = res_all_f$ci_lower, CI_Upper = res_all_f$ci_upper, P_value = res_all_f$pval.x, Egger_Intercept_P_value = res_all_f$pval.y, Q_P_value = res_all_f$Q_pval)
     
     res_filename <- paste("protein_to_ad_mr_", toString(threshold), "_",  toString(option), ".csv", sep="")
-    
+
     write.csv(res_table, res_filename, row.names=F, quote=F)
-    
+
     print("Step 11: Create plots")
-    
+
     print("Scatter plots")
     p1 <- mr_scatter_plot(res, dat)
     plot_list<-list(p1)
-    
+
     scatter_filename <- paste("protein_to_ad_mr_scatter_", toString(threshold), "_",  toString(option), ".pdf", sep="")
     pdf(scatter_filename)
     print(plot_list)
     dev.off()
-    
+
     print("Loo plots")
     res_loo_plot <- mr_leaveoneout_plot(res_loo)
     plot_list2<-list(res_loo_plot)
-    
+
     loo_filename <- paste("protein_to_ad_mr_loo_", toString(threshold), "_",  toString(option), ".pdf", sep="")
     pdf(loo_filename)
     print(plot_list2)
@@ -128,6 +128,7 @@ for (threshold in p_val_thresholds){
     
   }
 }
+
 
 
 #FOR INDIVIDUAL PROTEIN ANALYSES
