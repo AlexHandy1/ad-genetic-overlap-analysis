@@ -23,7 +23,7 @@ exp_dat <- format_data(AD_SNPS, type="exposure")
 
 print("Step 4: Extract outcome data for target proteins")
 
-out_dat <- extract_outcome_data(snps = exp_dat$SNP, outcomes = c("prot-a-131", "prot-a-127", "prot-a-670", "prot-a-1179", "prot-a-1448", "prot-a-93"))
+out_dat <- extract_outcome_data(snps = exp_dat$SNP, outcomes = c("prot-a-131", "prot-a-127", "prot-a-670", "prot-a-1179", "prot-a-1448"))
 
 harmonise_options = c(1,2)
   for (option in harmonise_options) {
@@ -76,8 +76,7 @@ harmonise_options = c(1,2)
                                   "prot-a-127"="Apolipoprotein B-100",
                                   "prot-a-670"="C-reactive protein",
                                   "prot-a-1179"="Vitamin D-binding protein",
-                                  "prot-a-1448"="Insulin-like growth factor-binding protein 2",
-                                  "prot-a-93"="Angiopoietin-2"
+                                  "prot-a-1448"="Insulin-like growth factor-binding protein 2"
                                   ))
     
     res_all<-left_join(res, res_het, by=c("id.outcome", "method"))
@@ -109,5 +108,8 @@ harmonise_options = c(1,2)
     print(plot_list2)
     dev.off()
   }
+
+
+
 
 

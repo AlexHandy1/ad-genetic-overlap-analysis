@@ -15,7 +15,7 @@ for (threshold in p_val_thresholds){
     kb_threshold <- 250
     
     #Exposure proteins
-    exp_dat <- extract_instruments(outcomes = c("prot-a-131", "prot-a-127", "prot-a-670", "prot-a-1179", "prot-a-1448", "prot-a-93"),p1=p_threshold,r2=ld_threshold,kb=kb_threshold)
+    exp_dat <- extract_instruments(outcomes = c("prot-a-131", "prot-a-127", "prot-a-670", "prot-a-1179", "prot-a-1448"),p1=p_threshold,r2=ld_threshold,kb=kb_threshold)
     print(paste("Total exposure SNPs loaded: ",nrow(exp_dat)))
     
     print("Step 2: Remove SNPs that are associated with multiple proteins")
@@ -93,8 +93,7 @@ for (threshold in p_val_thresholds){
                                   "prot-a-127"="Apolipoprotein B-100", 
                                   "prot-a-670"="C-reactive protein",
                                   "prot-a-1179"="Vitamin D-binding protein",
-                                  "prot-a-1448"="Insulin-like growth factor-binding protein 2",
-                                  "prot-a-93"="Angiopoietin-2"
+                                  "prot-a-1448"="Insulin-like growth factor-binding protein 2"
                                   ))
     
     res_all<-left_join(res, res_het, by=c("id.exposure", "method"))
@@ -128,7 +127,6 @@ for (threshold in p_val_thresholds){
     
   }
 }
-
 
 
 #FOR INDIVIDUAL PROTEIN ANALYSES
