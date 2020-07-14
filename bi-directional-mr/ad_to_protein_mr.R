@@ -4,6 +4,12 @@ library(TwoSampleMR)
 library(dplyr)
 library(data.table)
 
+calcFstat <- function(beta, se) {
+  beta = as.numeric(beta)
+  se = as.numeric(se)
+  Fstat <- (beta*beta) / (se*se)
+  return(Fstat)
+}
 
 print("Step 1: Read in Kunkle GWAS Data")
 AD <- fread('/Users/alexanderhandy/Documents/MSc-Neuroscience/Thesis-data/Kunkle_Stage1_post_qc.txt', header=T) 
@@ -20,6 +26,16 @@ print("Step 3: Prepare colnames for MR")
 AD_SNPS <- AD_SNPS[ ,3:7]
 names(AD_SNPS) <- c("SNP", "effect_allele", "other_allele", "beta", "se")
 exp_dat <- format_data(AD_SNPS, type="exposure")
+
+print("Calculate F statistics and remove")
+print(paste("Total exposure SNPs before F stat check: ",nrow(exp_dat)))
+#Create F stat
+exp_dat["F"] <- apply(exp_dat,1, function(x) calcFstat(x["beta.exposure"], x["se.exposure"]))
+#Remove SNPs with F stat < 10
+exp_dat = exp_dat %>% filter(F > 10)
+#Drop F stat column 
+exp_dat = exp_dat %>% select(-F)
+print(paste("Total exposure SNPs after F stat check: ",nrow(exp_dat)))
 
 print("Step 4: Extract outcome data for target proteins")
 
@@ -108,6 +124,7 @@ harmonise_options = c(1,2)
     print(plot_list2)
     dev.off()
   }
+
 
 
 

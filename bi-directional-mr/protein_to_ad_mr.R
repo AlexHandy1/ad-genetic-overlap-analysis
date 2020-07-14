@@ -7,6 +7,13 @@ library(data.table)
 p_val_thresholds = c(5e-08, 5e-06)
 harmonise_options = c(1,2)
 
+calcFstat <- function(beta, se) {
+  beta = as.numeric(beta)
+  se = as.numeric(se)
+  Fstat <- (beta*beta) / (se*se)
+  return(Fstat)
+}
+
 for (threshold in p_val_thresholds){
   for (option in harmonise_options) {
     print("Step 1: Select SNPs for protein exposures that pass GWS")
@@ -17,6 +24,16 @@ for (threshold in p_val_thresholds){
     #Exposure proteins
     exp_dat <- extract_instruments(outcomes = c("prot-a-131", "prot-a-127", "prot-a-670", "prot-a-1179", "prot-a-1448"),p1=p_threshold,r2=ld_threshold,kb=kb_threshold)
     print(paste("Total exposure SNPs loaded: ",nrow(exp_dat)))
+    
+    print("Calculate F statistics and remove")
+    print(paste("Total exposure SNPs before F stat check: ",nrow(exp_dat)))
+    #Create F stat
+    exp_dat["F"] <- apply(exp_dat,1, function(x) calcFstat(x["beta.exposure"], x["se.exposure"]))
+    #Remove SNPs with F stat < 10
+    exp_dat = exp_dat %>% filter(F > 10)
+    #Drop F stat column 
+    exp_dat = exp_dat %>% select(-F)
+    print(paste("Total exposure SNPs after F stat check: ",nrow(exp_dat)))
     
     print("Step 2: Remove SNPs that are associated with multiple proteins")
     exp_dat <- exp_dat[!(duplicated(exp_dat$SNP)|duplicated(exp_dat$SNP, fromLast=TRUE)),, drop=FALSE]
@@ -129,21 +146,3 @@ for (threshold in p_val_thresholds){
 }
 
 
-#FOR INDIVIDUAL PROTEIN ANALYSES
-#Apolipoprotein E (Search term in https://gwas.mrcieu.ac.uk: Apolipoprotein E)
-#APOE3_exp_dat <- extract_instruments(outcomes='prot-a-131', p1=p_threshold, r2=ld_threshold, kb=kb_threshold)
-
-#Apolipoprotein B-100 (Search term in https://gwas.mrcieu.ac.uk: Apolipoprotein B)
-#APOB_exp_dat <- extract_instruments(outcomes='prot-a-127', p1=p_threshold, r2=ld_threshold, kb=kb_threshold)
-
-#C-reactive protein (Search term in https://gwas.mrcieu.ac.uk: C-reactive protein)
-#CRP_exp_dat <- extract_instruments(outcomes='prot-a-670', p1=p_threshold, r2=ld_threshold, kb=kb_threshold)
-
-#Vitamin D-binding protein (Search term in https://gwas.mrcieu.ac.uk: Vitamin D-binding protein)
-#VITD_exp_dat <- extract_instruments(outcomes='prot-a-1179', p1=p_threshold, r2=ld_threshold, kb=kb_threshold)
-
-#Insulin-like growth factor-binding protein 2 (Search term in https://gwas.mrcieu.ac.uk: Insulin-like growth factor-binding protein 2)
-#IGFBP2_exp_dat <- extract_instruments(outcomes='prot-a-1448', p1=p_threshold, r2=ld_threshold, kb=kb_threshold)
-
-#Angiopoietin-2 (Search term in https://gwas.mrcieu.ac.uk: Angiopoietin-2 -> 2 probes with same UniProt ID, selected prot-a-93 for analysis as most likely to correspond to ANGPT2.13660.76.3 (included in analysis) which occurs before ANGPT2.2602.2.2)
-#ANG2_exp_dat <- extract_instruments(outcomes='prot-a-93', p1=p_threshold, r2=ld_threshold, kb=kb_threshold)
