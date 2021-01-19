@@ -12,7 +12,7 @@ calcFstat <- function(beta, se) {
 }
 
 print("Step 1: Read in Kunkle GWAS Data")
-AD <- fread('/Users/alexanderhandy/Documents/MSc-Neuroscience/Thesis-data/Kunkle_Stage1_post_qc.txt', header=T) 
+AD <- fread('/Users/alexanderhandy/Documents/academia/kcl-msc-neuroscience/thesis-data/Kunkle_Stage1_post_qc.txt', header=T) 
 
 print("Step 2: Select 26 genome-wide significant SNPs from Kunkle Stage 1, 2 and 3 as instruments")
 AD_SNPs_rs_ids <- c("rs4844610","rs6733839","rs10933431","rs9271058","rs75932628",
@@ -59,7 +59,28 @@ harmonise_options = c(1,2)
     print("Step 7: Perform MR")
     res <-mr(dat,   method_list=c( "mr_ivw", "mr_egger_regression","mr_weighted_median"))
     
-    print("Step 8: Perform Sensitivity Analysis")
+    print("Step 8: Setup outputs for forest plots")
+    res_forest <- res
+    
+    res_forest <- res_forest %>% mutate(Protein=recode(id.outcome,
+                                                       "prot-a-131"="APOE ε3",
+                                                       "prot-a-127"="APOB-100", 
+                                                       "prot-a-670"="CRP",
+                                                       "prot-a-1179"="VDBP",
+                                                       "prot-a-1448"="IGFBP2"
+    ))
+    
+    print("Format p-values")
+    res_forest$pval<-format(res_forest$pval, format = "e", digits = 2)
+    
+    print("Order alphabetically by protein")
+    res_forest <- res_forest[order(res_forest$Protein),]
+    
+    print("Change inverse variance weighted to IVW")
+    replace_ivw <- function(x) gsub('Inverse variance weighted', 'IVW', x)
+    res_forest$method <- lapply(res_forest$method, replace_ivw)
+    
+    print("Step 9: Perform Sensitivity Analysis")
     print("Estimate Egger intercept")
     res_pleio <- mr_pleiotropy_test(dat)
     
@@ -69,7 +90,7 @@ harmonise_options = c(1,2)
     print("Leave one out analysis")
     res_loo <- mr_leaveoneout(dat)
     
-    print("Step 9: Generate confidence intervals")
+    print("Step 10: Generate confidence intervals")
     ci_lower<-c()
     ci_upper<-c()
     
@@ -84,7 +105,7 @@ harmonise_options = c(1,2)
     res$ci_upper <- ci_upper
     
     
-    print("Step 10: Create results table")
+    print("Step 11: Create results table")
     
     print("Add Protein Names with recode")
     res <- res %>% mutate(Protein=recode(id.outcome,
@@ -104,7 +125,32 @@ harmonise_options = c(1,2)
 
     write.csv(res_table, res_filename, row.names=F, quote=F)
     
-    print("Step 11: Create plots")
+    print("Step 12: Create plots")
+    
+    print("Forest plots")
+    p_forest_filename <- paste("ad_to_protein_mr_forest_",  toString(option), ".tiff", sep="")
+    tiff(p_forest_filename, width = 5.3, height = 5.2, units = "in", res = 300)
+    p_forest <- forest_plot_1_to_many(res_forest,
+                                      b="b",
+                                      se="se",
+                                      exponentiate=F,
+                                      ao_slc=F,
+                                      col1_width=1.7,
+                                      by="Protein",
+                                      TraitM="method",
+                                      xlab="Protein β per SD increase in exposure (95% CI)",
+                                      addcols=c("nsnp",
+                                                "pval"),
+                                      addcol_widths=c(0.75,
+                                                      0.75),
+                                      addcol_titles=c("SNPs (N)",
+                                                      "P-value"),
+                                      shape_points = 16,
+                                      col_text_size = 2.5, 
+                                      subheading_size = 7,
+    )
+    print(p_forest)
+    dev.off()
     
     print("Scatter plots")
     p1 <- mr_scatter_plot(res, dat)
