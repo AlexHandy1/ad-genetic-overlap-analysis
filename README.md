@@ -5,7 +5,7 @@ Background and Objectives
 
 * Recent advances in proteomics enable analysis of the genetic overlap of blood plasma proteins and AD and combined with Mendelian Randomization (MR) can help determine protein causality.   
 
-* This project aims to identify if there are significant associations between blood plasma protein polygenic risk scores (PRS) and AD and, for associated proteins, identify whether exposure to the protein is causal using MR.   
+* This study aims to identify if there are significant associations between blood plasma protein polygenic risk scores (PRS) and AD and, for associated proteins, identify whether exposure to the protein is causal using MR.   
 
 
 Analysis Structure
@@ -29,18 +29,4 @@ Analysis Structure
 * The analysis is designed to run primarily on King's College London's high performance computing cluster [Rosalind](https://rosalind.kcl.ac.uk) where input data can be held securely.   
 
 * Currently, the scripts do not operate as an end-to-end pipeline and have been designed for personal efficiency rather than third party replication.  
-
-* The analysis is ongoing and the corresponding scripts continue to be updated.  Each repository may not contain the comprehensive set of scripts used to complete the analysis.  
-
-
-Planned Improvements
--------
-
-Once my MSc thesis has been submitted, I am planning two types of improvements, updates to the existing analysis pipeline and extensions to the research scope.  
-
-Below is a list in order of priority:   
-
-* Build multi-protein PRS prediction panel using machine learning
-
-* Build automated, reproducible analysis pipeline with integrated tests on public cloud service   
 
