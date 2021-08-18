@@ -1,11 +1,11 @@
 Background and Objectives
 -------
 
-* Proteins present in blood plasma are modifiable and have been associated with AD but understanding which proteins are causal remains challenging.     
+* Blood plasma proteins have been associated with Alzheimer’s disease (AD), but understanding which proteins are on the causal pathway remains challenging.     
 
-* Recent advances in proteomics enable analysis of the genetic overlap of blood plasma proteins and AD and combined with Mendelian Randomization (MR) can help determine protein causality.   
+* This study aims to investigate the genetic overlap between candidate proteins and AD using polygenic risk scores (PRS) and interrogate their causal relationship using bi-directional Mendelian Randomization (MR).   
 
-* This study aims to identify if there are significant associations between blood plasma protein polygenic risk scores (PRS) and AD and, for associated proteins, identify whether exposure to the protein is causal using MR.   
+* More details are available in the [academic paper](https://www.medrxiv.org/content/10.1101/2021.04.21.21255751v1)
 
 
 Analysis Structure
