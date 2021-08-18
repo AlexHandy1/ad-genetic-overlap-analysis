@@ -5,7 +5,7 @@ Background and Objectives
 
 * This study aims to investigate the genetic overlap between candidate proteins and AD using polygenic risk scores (PRS) and interrogate their causal relationship using bi-directional Mendelian Randomization (MR).   
 
-* More details are available in the [academic paper](https://www.medrxiv.org/content/10.1101/2021.04.21.21255751v1)
+* More details are available in the academic paper [('Assessing genetic overlap and causality between blood plasma proteins and Alzheimer’s Disease')](https://www.medrxiv.org/content/10.1101/2021.04.21.21255751v1)
 
 
 Analysis Structure
